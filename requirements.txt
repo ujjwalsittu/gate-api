@@ -1,0 +1,10 @@
+fastapi==0.78.0
+pydantic==1.9.2
+python-dotenv==0.20.0
+SQLAlchemy==1.4.40
+uvicorn==0.18.3
+websockets==10.3
+python-multipart
+passlib~=1.7.4
+PyMySQL
+jose
