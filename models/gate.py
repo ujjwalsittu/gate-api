@@ -11,7 +11,7 @@ class Society(Base):
     lat = Column(Float, index=2)
     long = Column(Float, index=3)
     address = Column(String(150), index=4)
-    manager_id = Column(String(50), ForeignKey('manager.id'), index=5)
+    manager_id = Column(Integer, ForeignKey('manager.id'), index=5)
     manager = relationship('Manager', back_populates='society')
     description = Column(String(100), index=6)
     created_at = Column(DateTime, index=7, default=datetime.datetime.utcnow)
@@ -50,8 +50,9 @@ class Flat(Base):
     block = relationship('Block', back_populates='flat')
     society_id = Column(Integer, ForeignKey('society.id'), index=3)
     society = relationship('Society', back_populates='flat')
-    created_at = Column(DateTime, default=datetime.datetime.utcnow(), index=4)
-    updated_at = Column(DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.now, index=5)
+    device_token = Column(String(255), index=4)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow(), index=5)
+    updated_at = Column(DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.now, index=6)
 
 
 class Guard(Base):
